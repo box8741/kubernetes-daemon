@@ -29,7 +29,7 @@ kubectl create -f custom-resources.yaml
 # Docker Login 기반 Secret 생성 (Harbor 접근용)
 # 이 시점에 이미 docker login이 되어 있어야 /root/.docker/config.json이 존재
 if [ -f /root/.docker/config.json ]; then
-    kubectl create secret generic harbor-secret \
+    kubectl create secret generic default-secret \
       --from-file=.dockerconfigjson=/root/.docker/config.json \
       --type=kubernetes.io/dockerconfigjson
 fi
